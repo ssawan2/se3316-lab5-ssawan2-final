@@ -1,1 +1,52 @@
 <p>search works!</p>
+<h2>Search By:</h2>
+<div>
+    <h4>Subject Code:</h4>
+    Subject: <input placeholder="Enter Subject Code" [(ngModel)]="subject">
+    <button (click)="searchForCourses()">Search</button>
+    <div>
+        <li *ngFor="let display of returnValue">
+            <p> Course Code: {{display.courseCode}} </p>
+        </li>
+    </div>
+    <div id="courseDiv" class="div2"></div>
+</div>
+<div>
+    <h4>To get the timetable entry for a given subject code, a course code and an optional course component</h4>
+    <input type="text" placeholder="Enter Subject Code" maxlength="10" [(ngModel)]="subjectCode">
+    <input type="text" placeholder="Enter Course Code" maxlength="10" [(ngModel)]="courseCode">
+    <input type="text" placeholder="Enter Course Component" maxlength="10" [(ngModel)]="inComp">
+    <button (click)="getTimetable()">Search</button>
+    <div id="ttDIV">
+        <div>
+            <li *ngFor="let display of returnValueTT">
+                <p>Subject: {{display.course_info.subject}} </p>
+                <p>Catalog Number: {{display.course_info.catalog_nbr}}</p>
+                <p>Class Name: {{display.course_info.className}}</p>
+                <p>Class Section: {{display.course_info.course_info[0].class_section}}</p>
+                <p>SSR Component: {{display.course_info.course_info[0].ssr_component}}</p>
+            </li>
+
+        </div>
+        <button (click)="show = !show">{{show ? 'Click to Hide Remaining Components' : 'Click to View Remaining Components'}}</button>
+        <br>
+        <div *ngIf="show">
+            <li *ngFor="let display of returnValueTT">
+                <p>Class Number: {{display.course_info.course_info[0].class_nbr}}</p>
+                <p>Start Time: {{display.course_info.course_info[0].start_time}}</p>
+                <p>End Time: {{display.course_info.course_info[0].end_time}}</p>
+                <p>Long Description: {{display.course_info.course_info[0].descrlong}}</p>
+                <p>Campus: {{display.course_info.course_info[0].campus}}</p>
+                <p>Facility ID: {{display.course_info.course_info[0].facility_ID}}</p>
+                <p>Days: {{display.course_info.course_info[0].days}}</p>
+                <p>Instructors: {{display.course_info.course_info[0].instructors}}</p>
+                <p>Enrollement Start: {{display.course_info.course_info[0].enrl_stat}}</p>
+                <p>Description {{display.course_info.course_info[0].descr}}</p>
+            </li>
+            <li>
+
+            </li>
+        </div>
+
+    </div>
+</div>
