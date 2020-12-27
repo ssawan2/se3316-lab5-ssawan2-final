@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { SearchComponent } from './components/search/search.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { UserTimetableComponent } from './components/user-timetable/user-timetable.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  {path: 'search', component: SearchComponent}
+  {path: 'search', component: SearchComponent},
+  
+  { path: 'timetable', component: UserTimetableComponent }
 ];
 
 @NgModule({

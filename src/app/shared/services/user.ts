@@ -4,4 +4,7 @@ export interface User {
     displayName: string;
     photoURL: string;
     emailVerified: boolean;
+    admin ?: boolean;
+    siteManager ?: boolean;
+    active: boolean;
  }

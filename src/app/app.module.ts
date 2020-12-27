@@ -16,6 +16,10 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AuthService } from './service/auth.service';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { UserTimetableComponent } from './components/user-timetable/user-timetable.component';
+import { AdminAccessComponent } from './components/admin-access/admin-access.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    SearchComponent
+    SearchComponent,
+    UserTimetableComponent,
+    AdminAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
