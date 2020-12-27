@@ -17,9 +17,11 @@ import { AuthService } from './service/auth.service';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-import { UserTimetableComponent } from './components/user-timetable/user-timetable.component';
 import { AdminAccessComponent } from './components/admin-access/admin-access.component';
+import { TimetableDetailsComponent } from './timetable/timetable-details/timetable-details.component';
+import { TimetableListComponent } from './timetable/timetable-list/timetable-list.component';
+import { TimetableCreateComponent } from './timetable/timetable-create/timetable-create.component';
+import { TimetableComponent } from './timetable/timetable/timetable.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +32,11 @@ import { AdminAccessComponent } from './components/admin-access/admin-access.com
     ForgotPasswordComponent,
     VerifyEmailComponent,
     SearchComponent,
-    UserTimetableComponent,
-    AdminAccessComponent
+    AdminAccessComponent,
+    TimetableDetailsComponent,
+    TimetableListComponent,
+    TimetableCreateComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,

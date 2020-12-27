@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
+import { AngularFireAuth } from "@angular/fire/auth";
 import {Timetable} from '../shared/services/timetable';
+import {User} from '../shared/services/user';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimetableControlService {
 
-  private dbPath = '/timetableCreating';
+  private dbPath = '/timetable';
 
-  timetableRef: AngularFireList<Timetable> = null;
+  timetableRef: AngularFireList<Timetable>;
 
+  userId: string;
 
- constructor(private db: AngularFireDatabase) {
-    this.timetableRef = db.list(this.dbPath);
+ constructor(private db: AngularFireDatabase, private afAuth:AngularFireAuth) {
+    
+  this.timetableRef = db.list(this.dbPath);
   }
   createTimetable(timetable: Timetable): void {
     this.timetableRef.push(timetable);
@@ -34,4 +39,16 @@ export class TimetableControlService {
   deleteAll(): Promise<void> {
     return this.timetableRef.remove();
   }
+
+  // getTimetablelist(): AngularFireObject<Timetable[]>{
+  //     if(!this.userId)return;
+  //      this.timetables = this.db.list(`item/${this.userId}`);
+  //      return this.timetables
+  // }
+
+  // createTimetable(timetable: Timetable): void{
+  //   timetable.userId = timetable.userId
+  //   this.timetables.push(timetable)
+  // }
+  
 }

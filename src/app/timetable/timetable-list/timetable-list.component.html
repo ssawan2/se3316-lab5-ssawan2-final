@@ -1,0 +1,7 @@
+<h1>Timetables</h1>
+<div *ngFor="let timetable of timetables" style="width: 300px;">
+    <app-timetable-details [timetable]='timetable'></app-timetable-details>
+</div>
+<div style="margin-top:20px;">
+    <button type="button" class="button btn-danger" (click)='deleteTimetables()'>Delete All</button>
+</div>

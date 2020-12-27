@@ -5,8 +5,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { SearchComponent } from './components/search/search.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { UserTimetableComponent } from './components/user-timetable/user-timetable.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { TimetableCreateComponent } from './timetable/timetable-create/timetable-create.component';
+import { TimetableListComponent } from './timetable/timetable-list/timetable-list.component';
+import { TimetableComponent } from './timetable/timetable/timetable.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -17,7 +19,10 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   {path: 'search', component: SearchComponent},
   
-  { path: 'timetable', component: UserTimetableComponent }
+  { path: 'timetable', component: TimetableComponent },
+  
+  { path: 'timetable/timetable-list', component: TimetableListComponent },
+  { path: 'timetable/add', component: TimetableCreateComponent }
 ];
 
 @NgModule({

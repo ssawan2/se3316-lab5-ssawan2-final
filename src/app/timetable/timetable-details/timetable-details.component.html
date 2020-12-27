@@ -1,0 +1,19 @@
+<div *ngIf="timetable">
+    <div>
+        <label>First Name: </label> {{timetable.name}}
+    </div>
+    <div>
+        <label>Age: </label> {{timetable.age}}
+    </div>
+    <div>
+        <label>Active: </label> {{timetable.active}}
+    </div>
+
+    <span class="button is-small btn-primary" *ngIf='timetable.active' (click)='updateActive(false)'>Inactive</span>
+
+    <span class="button is-small btn-primary" *ngIf='!timetable.active' (click)='updateActive(true)'>Active</span>
+
+    <span class="button is-small btn-danger" (click)='deleteTimetable()'>Delete</span>
+
+    <hr/>
+</div>
