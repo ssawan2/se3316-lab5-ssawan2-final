@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import * as admin from 'firebase-admin'
 
 @Component({
   selector: 'app-admin-access',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminAccessComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public afs: AngularFirestore, ) { }
+returnArray: any [] = [];
   ngOnInit(): void {
+    this.afs
+  .collection("users")
+  .get()
+  .subscribe((ss) => {
+    ss.docs.forEach((doc) => {
+      this.returnArray.push(doc.data());
+    });
+  });
   }
+
+  SettingSiteManagers(user){
+    
+  }
+
+
+
 
 }

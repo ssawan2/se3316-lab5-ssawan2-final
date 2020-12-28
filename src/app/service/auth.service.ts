@@ -38,6 +38,7 @@ export class AuthService {
           this.router.navigate(['dashboard']);
         });
         this.SetUserData(result.user);
+        this.SettingAdmin(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -69,6 +70,7 @@ export class AuthService {
           this.router.navigate(['dashboard']);
         })
       this.SetUserData(result.user);
+      this.SettingAdmin(result.user);
     }).catch((error) => {
       window.alert(error)
     })
@@ -92,7 +94,9 @@ export class AuthService {
     })
   }
   SettingAdmin(user){
+    
     if(user.email == "master@mail.com"){
+      console.log("hello it got here")
       this.afs.collection("users/").doc(`${user.uid}`)
       .update({ admin: true })
       .then(function() {

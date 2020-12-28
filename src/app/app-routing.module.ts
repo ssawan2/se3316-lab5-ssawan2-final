@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminAccessComponent } from './components/admin-access/admin-access.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { SearchComponent } from './components/search/search.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   {path: 'search', component: SearchComponent},
+  { path: 'admin', component: AdminAccessComponent},
   
   { path: 'timetable', component: TimetableComponent },
   

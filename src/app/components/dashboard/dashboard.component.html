@@ -39,11 +39,6 @@
                                 <p>User ID: <strong>{{user.uid}}</strong></p>
                                 <p>Email: <strong>{{user.email}}</strong></p>
                                 <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-                                <p>Admin: <strong>{{user.admin}}</strong></p>
-                                <div *ngIf="user.admin">
-                                    <p></p>
-                                    <p>Admin Status: <strong>{{user.admin}}</strong></p>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +47,9 @@
             </div>
         </main>
 
-
+        <div class="redirectToTimetable">
+            <span>Admin <span class="redirect" routerLink="/admin">Admin</span></span>
+        </div>
         <div class="redirectToTimetable">
             <span>To Create a Timetable<span class="redirect" routerLink="/timetable">Create Timetable</span></span>
         </div>
