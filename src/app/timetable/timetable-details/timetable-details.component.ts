@@ -26,6 +26,11 @@ export class TimetableDetailsComponent implements OnInit {
       .updateTimeTable(this.timetable.key, { active: isActive })
       .catch(err => console.log(err));
   }
+
+  // updateContent(){
+  //   this.timetableControlService
+  //   .updateTimeTable(this.timetable.key, {})
+  // }
  
   deleteTimetable() {
     this.timetableControlService
