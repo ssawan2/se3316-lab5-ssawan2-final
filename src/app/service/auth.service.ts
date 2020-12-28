@@ -49,6 +49,8 @@ export class AuthService {
       .then((result) => {
         //this.SendVerificationMail();
         this.SetUserData(result.user);
+        
+        this.SettingAdmin(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -81,13 +83,25 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-      admin: user.admin,
-      siteManager: user.siteManager,
-      active: user.active,
+      admin: user.admin = false,
+      // siteManager: user.siteManager,
+      // active: user.active,
     }
     return userRef.set(userData, {
       merge: true
     })
+  }
+  SettingAdmin(user){
+    if(user.email == "master@mail.com"){
+      this.afs.collection("users/").doc(`${user.uid}`)
+      .update({ admin: true })
+      .then(function() {
+       console.log("Document successfully updated!");
+   })
+   .catch(function(error) {
+       console.error("Error updating document: ", error);
+   });
+     }
   }
 
   // Sign out 

@@ -39,7 +39,9 @@
                                 <p>User ID: <strong>{{user.uid}}</strong></p>
                                 <p>Email: <strong>{{user.email}}</strong></p>
                                 <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                                <p>Admin: <strong>{{user.admin}}</strong></p>
                                 <div *ngIf="user.admin">
+                                    <p></p>
                                     <p>Admin Status: <strong>{{user.admin}}</strong></p>
                                 </div>
                             </div>
