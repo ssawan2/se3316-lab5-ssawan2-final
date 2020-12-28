@@ -22,7 +22,7 @@ import { TimetableDetailsComponent } from './timetable/timetable-details/timetab
 import { TimetableListComponent } from './timetable/timetable-list/timetable-list.component';
 import { TimetableCreateComponent } from './timetable/timetable-create/timetable-create.component';
 import { TimetableComponent } from './timetable/timetable/timetable.component';
-
+import { ReactiveFormsModule } from "@Angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,8 @@ import { TimetableComponent } from './timetable/timetable/timetable.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

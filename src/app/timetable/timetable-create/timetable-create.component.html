@@ -6,9 +6,11 @@
             <input type="text" class="form-control" id="name" required [(ngModel)]="timetable.name" name="name">
             <label for="subjectCodeEntry">Subject Code:</label>
             <input type="text" class="form-control" id="subjectCodeEntry" required [(ngModel)]="timetable.subjectCodeEntry" name="sc">
-            <label for="subjectCodeEntry">Course Code:</label>
+            <label for="courseCodeEntry">Course Code:</label>
             <input type="text" class="form-control" id="courseCodeEntry" required [(ngModel)]="timetable.courseCodeEntry" name="cc">
-            <label for="subjectCodeEntry">Date:</label>
+            <label for="description">Description :</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="timetable.description" name="ds">
+            <label for="date">Date:</label>
             <input type="date" class="form-control" id="date" required [(ngModel)]="timetable.date" name="date">
         </div>
         <button type="submit" class="btn btn-success">Submit</button>

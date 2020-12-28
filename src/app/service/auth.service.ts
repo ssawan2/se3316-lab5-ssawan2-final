@@ -86,7 +86,7 @@ export class AuthService {
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
       admin: user.admin = false,
-      // siteManager: user.siteManager,
+      siteManager: user.siteManager = false,
       // active: user.active,
     }
     return userRef.set(userData, {
@@ -107,6 +107,13 @@ export class AuthService {
    });
      }
   }
+
+  // SettingSiteManager(user){
+  //   if(user.admin == true){
+  //     const docRef = this.afs.collection('users', ref => ref
+  //     .where("siteManager", "==", this.secondForm.value.valueToGet));
+  //   }
+  // }
 
   // Sign out 
   SignOut() {

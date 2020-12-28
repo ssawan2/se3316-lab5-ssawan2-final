@@ -5,6 +5,8 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import {Timetable} from '../shared/services/timetable';
 import {User} from '../shared/services/user';
 
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +19,12 @@ export class TimetableControlService {
 
   userId: string;
 
- constructor(private db: AngularFireDatabase, private afAuth:AngularFireAuth) {
+ constructor(private db: AngularFireDatabase, private afAuth:AngularFireAuth,public afs: AngularFirestore ) {
     
   this.timetableRef = db.list(this.dbPath);
   }
+
+  
   createTimetable(timetable: Timetable): void {
     this.timetableRef.push(timetable);
   }

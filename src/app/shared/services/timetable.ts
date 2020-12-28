@@ -5,4 +5,6 @@ export class Timetable {
     date: Date;
     subjectCodeEntry: string[];
     courseCodeEntry: string[];
+    description: string[];
+    uid: string;
  }
