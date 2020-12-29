@@ -13,7 +13,7 @@ import { firebase } from '@firebase/app';
 @Injectable({
   providedIn: 'root'
 })
-
+//tutorial used: https://www.remotestack.io/angular-firebase-authentication-example-tutorial/
 export class AuthService {
   userData: any; 
   constructor(
