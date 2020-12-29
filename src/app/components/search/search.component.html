@@ -1,15 +1,5 @@
 <h3>Search By:</h3>
-<div>
-    <h4>Subject Code:</h4>
-    Subject: <input placeholder="Enter Subject Code" [(ngModel)]="subject">
-    <button (click)="searchForCourses()">Search</button>
-    <div>
-        <li *ngFor="let display of returnValue">
-            <p> Course Code: {{display.courseCode}} </p>
-        </li>
-    </div>
-    <div id="courseDiv" class="div2"></div>
-</div>
+
 <div>
     <h4>To get the timetable entry for a given subject code, a course code and an optional course component</h4>
     <input type="text" placeholder="Enter Subject Code" maxlength="10" [(ngModel)]="subjectCode">
@@ -49,8 +39,43 @@
 
     </div>
 </div>
-
+<!-- <div>
+    <h4>Keyword Search:</h4>
+    Search By Keyword: <input placeholder="Enter Keyword Code" [(ngModel)]="keyword">
+    <button (click)="searchByKeywords()">Search</button>
+    <div>
+        <li *ngFor="let display of rV">
+            <p>Subject: {{display.courseCode}} </p>
+        </li>
+    </div>
+    <div id="courseDiv" class="div2"></div>
+</div> -->
+<!-- <div>
+    <h4>Keyword Search</h4>
+    Keyword: <input placeholder="Enter Keyword" [(ngModel)]="keyword">
+    <button (click)="searchByKeywords()">Search</button>
+    <div>
+        <li *ngFor="let display of rV">
+            <p> hi </p>
+        </li>
+    </div>
+    <div id="courseDiv" class="div2"></div>
+</div> -->
 <div>
+    <h4>Subject Code:</h4>
+    Subject: <input placeholder="Enter Subject Code" [(ngModel)]="subject">
+    <button (click)="searchForCourses()">Search</button>
+    <div>
+        <li *ngFor="let display of returnValue">
+            <p> Course Code: {{display.courseCode}} </p>
+        </li>
+    </div>
+    <div id="courseDiv" class="div2"></div>
+</div>
+<br>
+<button (click)="display = !display">{{display ? 'Click to Hide Timetables' : 'Click to View Timetables'}}</button>
+<div *ngIf=display>
+
     <div *ngFor="let timetable of timetables" style="width: 300px;">
         <div>
             <app-timetable-details [timetable]='timetable'></app-timetable-details>

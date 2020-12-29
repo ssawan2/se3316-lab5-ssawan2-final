@@ -10,12 +10,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active">
-                            <i class="fas fa-user"></i>TimeTable Creator
-                            <span class="redirect" routerLink="/timetable-creator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" (click)="authService.SignOut()">
                             <i class="fas fa-sign-out-alt"></i>Log out
                         </a>
@@ -48,29 +42,30 @@
         </main>
 
         <br>
-        <div class="redirectToTimetable">
-            <span>To Create a Timetable<span class="redirect" routerLink="/timetable">Create Timetable</span></span>
-        </div>
-        <br>
-        <div class="redirectToTimetable">
-            <span>Enter A Course Review<span class="redirect" routerLink="/review/addReview">Review</span></span>
-        </div>
-        <div *ngIf="authService.userData as user">
-            <div *ngIf="check(user)">
-                <div class="redirectToTimetable">
-                    <span>Admin Panel <span class="redirect" routerLink="/admin">Admin</span></span>
-                </div>
-                <div class="redirectToTimetable">
-                    <span>AUP<span class="redirect" routerLink="/aup">Review</span></span>
-                </div>
-                <div class="redirectToTimetable">
-                    <span>DMCA<span class="redirect" routerLink="/dmca">Review</span></span>
-                </div>
-                <div class="redirectToTimetable">
-                    <span>S and C<span class="redirect" routerLink="/s-and-c">Review</span></span>
+        <div>
+            <span class="redirect" routerLink="/timetable">Create Timetable</span>
+            <br>
+            <span class="redirect" routerLink="/review/addReview">Course Review</span>
+            <br>
+            <div *ngIf="authService.userData as user">
+                <div *ngIf="check(user)">
+                    <div class="redirectToTimetable">
+                        <span class="redirect" routerLink="/admin">Admin Panel</span>
+                    </div>
+                    <div class="redirectToTimetable">
+                        <span class="redirect" routerLink="/aup">AUP</span>
+                    </div>
+                    <div class="redirectToTimetable">
+                        <span class="redirect" routerLink="/dmca">DMCA</span>
+                    </div>
+                    <div class="redirectToTimetable">
+                        <span class="redirect" routerLink="/s-and-c">S & C</span>
+                    </div>
                 </div>
             </div>
         </div>
+
+
 
     </div>
 </div>

@@ -27,6 +27,7 @@ export class SearchComponent implements OnInit {
   public rV = [];
 
   show = false;
+  display = false;
   public keyword: String;
 
   timetables: any;
@@ -41,48 +42,21 @@ export class SearchComponent implements OnInit {
     return value
   }
   searchForCourses() {
-    const subj = this.subject;
+    const subj = this.subject.toUpperCase();
+
     var ssubj = this.sanitization(subj);
     console.log(ssubj);
     for (let i = 0; i < this.CourseInfo.length; i++) {
-      if (this.CourseInfo[i].subject == ssubj) {
+      if (this.CourseInfo[i].subject.includes(ssubj)) {
         this.returnValue.push({
           "courseCode": this.CourseInfo[i].catalog_nbr
         });
 
-      }
-    }
+      
+    }}
     console.log(this.returnValue);
   }
-  searchByKeywords() {
-    var txtValue, a, b, txtValueb;
-    //let keyword = this.keyword.toUpperCase();
-
-    let keyword = this.sanitization(this.keyword);
-    keyword = keyword.toUpperCase();
-
-    console.log(keyword);
-    // var skeyword = this.sanitization(keyword);
-    if (keyword.length > 3) {
-      console.log(keyword.length);
-      for (let i = 0; i < this.CourseInfo.length; i++) {
-        if ((this.CourseInfo[i].subject == keyword) || (this.CourseInfo[i].catalog_nbr == keyword)) {
-          //|| this.CourseInfo[i].catalog_nbr  == skeyword
-          console.log("MATCH");
-          this.rV.push({
-            "course_info": this.CourseInfo[i].course_info
-          })
-        }
-
-      }
-      console.log("2:" + this.rV);
-    }
-    else {
-      console.log("Error");
-
-    }
-
-  }
+  
   getTimetable() {
     let sc = this.sanitization(this.subjectCode);
     sc = sc.toUpperCase();
@@ -113,6 +87,26 @@ export class SearchComponent implements OnInit {
       }
     }
     console.log(this.returnValueTT);
+  }
+  searchByKeywords() {
+
+    let keyword = this.sanitization(this.keyword);
+    keyword = keyword.toUpperCase();
+
+    console.log(keyword);
+    if (keyword.length > 3) {
+      for (let i = 0; i < this.CourseInfo.length; i++) {
+        if ((this.CourseInfo[i].subject == keyword)) {
+          this.returnValue.push({
+            "course_info": this.CourseInfo[i].course_info
+          });
+        }
+      }
+    }
+    else {
+      console.log("Error");
+    }
+    console.log(this.returnValue);
   }
   getTimetableList(){
     this.timetableControlService.getTimetableList().snapshotChanges().pipe(
