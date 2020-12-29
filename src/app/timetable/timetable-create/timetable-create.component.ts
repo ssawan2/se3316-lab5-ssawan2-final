@@ -20,7 +20,7 @@ export class TimetableCreateComponent implements OnInit {
  submitted = false;
  CourseInfo: any = data;
  public returnValueTT = [];
-
+ show = false;
   constructor(private timetableControlService: TimetableControlService, public authService: AuthService) { }
 
   ngOnInit() {
@@ -38,6 +38,7 @@ export class TimetableCreateComponent implements OnInit {
  
   save() {
     this.timetable.uid = this.authService.userData.uid;
+    // this.timetable.StartTime = this.CourseInfo.start_time
     this.timetableControlService.createTimetable(this.timetable);
     this.timetable = new Timetable();
   }
@@ -71,17 +72,8 @@ export class TimetableCreateComponent implements OnInit {
       else{
         console.log("No Match was found");
       }
-   //}
-    // var body = JSON.stringify({ course_info: scheduleName, name: scheduleName, subjectCode: subjectCodeEntry, courseCode: courseCodeEntry });
-    //     this.http.put('http://localhost:3000/api/schedules/codes', body, { headers }).subscribe(data => {
-    //       console.log(data);
-    //     },
-    //       (error) => {
-    //         console.log("EROOORR");
-    //         console.log(error);
-    //       })
-  }
+    }
   }
   
-
 }
+

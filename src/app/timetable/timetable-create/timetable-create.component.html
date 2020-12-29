@@ -1,4 +1,7 @@
 <h3>Create Timetable</h3>
+<div class="redirectToAdd">
+    <span class="btn btn-primary active" role="button" routerLink="/timetable-list">View Previous Timetables</span>
+</div>
 <div [hidden]="submitted" style="width: 300px;">
     <form (ngSubmit)="checkForMatch()">
         <div class="form-group" *ngIf="authService.userData as user">

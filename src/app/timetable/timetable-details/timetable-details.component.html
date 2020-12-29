@@ -1,3 +1,7 @@
+<div class="redirectToAdd">
+    <span class="btn btn-primary active" role="button" routerLink="/add">Add Timetable</span>
+</div>
+
 <div *ngIf="timetable">
     <div>
         <label>Schedule Name: </label> {{timetable.name}}
@@ -9,14 +13,37 @@
         <label>Subject Code: </label> {{timetable.subjectCodeEntry}}
     </div>
     <div>
-        <label>Active: </label> {{timetable.active}}
+        <label>Viewing Status: </label> {{timetable.active}}
     </div>
 
-    <span class="button is-small btn-primary" *ngIf='timetable.active' (click)='updateActive(false)'>Inactive</span>
+    <span class="button is-small btn-primary" *ngIf='timetable.active' (click)='updateActive(false)'>Public</span>
 
-    <span class="button is-small btn-primary" *ngIf='!timetable.active' (click)='updateActive(true)'>Active</span>
+    <span class="button is-small btn-primary" *ngIf='!timetable.active' (click)='updateActive(true)'>Private</span>
 
     <span class="button is-small btn-danger" (click)='deleteTimetable()'>Delete</span>
+
+    <span class="button is-small btn-primary" *ngIf='timetable.edit' (click)='updateEdit(false)'>Save</span>
+
+    <span class="button is-small btn-primary" *ngIf='!timetable.edit' (click)='updateEdit(true)'>Edit</span>
+    <br>
+    <button class="btn btn-primary active" (click)="show = !show">{{show ? 'Click to Hide' : 'Click to View'}}</button>
+    <div *ngIf="show">
+        <div>
+            <li *ngFor="let display of returnValueTT">
+                <p>Subject: {{display.course_info.subject}} </p>
+                <p>Catalog Number: {{display.course_info.catalog_nbr}}</p>
+                <p>Class Name: {{display.course_info.className}}</p>
+                <p>Class Section: {{display.course_info.course_info[0].class_section}}</p>
+                <p>SSR Component: {{display.course_info.course_info[0].ssr_component}}</p>
+            </li>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- <span class="button is-small btn-danger" (click)='addTimetable()'>Add To Timetable</span> -->
 
     <hr/>
 </div>

@@ -23,6 +23,10 @@ import { TimetableListComponent } from './timetable/timetable-list/timetable-lis
 import { TimetableCreateComponent } from './timetable/timetable-create/timetable-create.component';
 import { TimetableComponent } from './timetable/timetable/timetable.component';
 import { ReactiveFormsModule } from "@Angular/forms";
+import { ReviewComponent } from './components/review/review.component';
+import { ReviewCreateComponent } from './components/reviews/review-create/review-create.component';
+import { ReviewDetailsComponent } from './components/reviews/review-details/review-details.component';
+import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,11 @@ import { ReactiveFormsModule } from "@Angular/forms";
     TimetableDetailsComponent,
     TimetableListComponent,
     TimetableCreateComponent,
-    TimetableComponent
+    TimetableComponent,
+    ReviewComponent,
+    ReviewCreateComponent,
+    ReviewDetailsComponent,
+    ReviewListComponent
   ],
   imports: [
     BrowserModule,

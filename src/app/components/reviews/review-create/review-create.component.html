@@ -1,0 +1,23 @@
+<h3>Create Timetable</h3>
+<div class="redirectToAdd">
+    <span class="btn btn-primary active" role="button" routerLink="/dashboard">Back to Dashboard</span>
+</div>
+<div [hidden]="submitted" style="width: 300px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group" *ngIf="authService.userData as user">
+            <label for="courseID">Course ID:</label>
+            <input type="text" class="form-control" id="courseID" required [(ngModel)]="review.courseID" name="courseID">
+            <label for="description">Description :</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="review.description" name="ds">
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date" required [(ngModel)]="review.date" name="date">
+
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newReview()">Add</button>
+</div>

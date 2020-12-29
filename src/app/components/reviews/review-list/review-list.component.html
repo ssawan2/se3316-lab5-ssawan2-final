@@ -1,0 +1,6 @@
+<h1>Reviews</h1>
+<div *ngIf="authService.userData as user">
+    <div *ngFor="let review of reviews" style="width: 300px;">
+        <app-timetable-details [rview]='review'></app-timetable-details>
+    </div>
+</div>

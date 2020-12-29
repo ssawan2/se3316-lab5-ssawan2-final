@@ -30,6 +30,7 @@ export class TimetableControlService {
   updateTimeTable(key: string, value:any): Promise<void>{
   return this.timetableRef.update(key,value);
   }
+  
   deleteTimetable(key: string): Promise<void> {
     return this.timetableRef.remove(key);
   }

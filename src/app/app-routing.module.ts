@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminAccessComponent } from './components/admin-access/admin-access.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ReviewComponent } from './components/review/review.component';
+import { ReviewCreateComponent } from './components/reviews/review-create/review-create.component';
+import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
 import { SearchComponent } from './components/search/search.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -22,9 +25,18 @@ const routes: Routes = [
   { path: 'admin', component: AdminAccessComponent},
   
   { path: 'timetable', component: TimetableComponent },
-  
+  { path: 'add', component: TimetableCreateComponent },
+  { path: 'timetable-list', component: TimetableListComponent },
   { path: 'timetable/timetable-list', component: TimetableListComponent },
-  { path: 'timetable/add', component: TimetableCreateComponent }
+  { path: 'timetable/add', component: TimetableCreateComponent },
+
+  { path: 'review', component: ReviewComponent },
+  { path: 'addReview', component: ReviewCreateComponent },
+  { path: 'review-list', component: ReviewListComponent },
+  { path: 'review/review-list', component: ReviewListComponent },
+  { path: 'review/addReview', component: ReviewCreateComponent },
+
+  
 ];
 
 @NgModule({

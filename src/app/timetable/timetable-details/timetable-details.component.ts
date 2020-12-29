@@ -1,10 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { Router } from "@angular/router";
-import { map } from 'rxjs/operators';
 import { Timetable } from 'src/app/shared/services/timetable';
-
-
 import {TimetableControlService } from '../../service/timetable-control.service';
 
 
@@ -16,7 +11,7 @@ import {TimetableControlService } from '../../service/timetable-control.service'
 export class TimetableDetailsComponent implements OnInit {
 
   @Input() timetable: Timetable;
-
+  edit: boolean;
   constructor(private timetableControlService: TimetableControlService) { }
 
   ngOnInit(): void {
@@ -26,15 +21,28 @@ export class TimetableDetailsComponent implements OnInit {
       .updateTimeTable(this.timetable.key, { active: isActive })
       .catch(err => console.log(err));
   }
+  updateEdit(isEdit: boolean) {
+    this.timetableControlService
+      .updateTimeTable(this.timetable.key, { edit: isEdit })
+      .catch(err => console.log(err));
+    console.log(isEdit);
+  }
 
-  // updateContent(){
-  //   this.timetableControlService
-  //   .updateTimeTable(this.timetable.key, {})
-  // }
  
   deleteTimetable() {
     this.timetableControlService
       .deleteTimetable(this.timetable.key)
+      .catch(err => console.log(err));
+  }
+
+  editTimetable() {
+    this.timetableControlService
+      .updateTimeTable (this.timetable.key, 
+        {
+          name: this.timetable.name, 
+          courseCodeEntry: this.timetable.courseCodeEntry, 
+          subjectCodeEntry: this.timetable.subjectCodeEntry
+        })
       .catch(err => console.log(err));
   }
 

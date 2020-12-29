@@ -1,0 +1,23 @@
+<div class="redirectToAdd">
+    <span class="btn btn-primary active" role="button" routerLink="/add">Add Timetable</span>
+</div>
+
+<div *ngIf="review">
+    <div>
+        <label>Course ID: </label> {{review.courseId}}
+    </div>
+    <div>
+        <label>Email: </label> {{review.email}}
+    </div>
+    <div>
+        <label>Date: </label> {{review.date}}
+    </div>
+    <div>
+        <label>Viewing Status: </label> {{review.isHidden}}
+    </div>
+
+    <span class="button is-small btn-primary" *ngIf='timetable.active' (click)='updateActive(false)'>Public</span>
+
+    <span class="button is-small btn-primary" *ngIf='!timetable.active' (click)='updateActive(true)'>Private</span>
+    <hr/>
+</div>
