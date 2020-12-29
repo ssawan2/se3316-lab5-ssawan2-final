@@ -38,7 +38,6 @@ export class TimetableCreateComponent implements OnInit {
  
   save() {
     this.timetable.uid = this.authService.userData.uid;
-    // this.timetable.StartTime = this.CourseInfo.start_time
     this.timetableControlService.createTimetable(this.timetable);
     this.timetable = new Timetable();
   }
@@ -49,7 +48,6 @@ export class TimetableCreateComponent implements OnInit {
   }
 
   checkForMatch(){
-  //   const value = data.value;
   var headers = { 'Content-type': 'application/json' };
 
   let name = this.sanitization(this.timetable.name);
