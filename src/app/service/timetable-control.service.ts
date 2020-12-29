@@ -49,9 +49,5 @@ export class TimetableControlService {
   //      return this.timetables
   // }
 
-  // createTimetable(timetable: Timetable): void{
-  //   timetable.userId = timetable.userId
-  //   this.timetables.push(timetable)
-  // }
   
 }
