@@ -6,12 +6,6 @@
         </li>
     </div>
 
-    <!-- <div>
-        <p>To set a site manager enter the user id</p>
-        <label for="siteManagers">User Id:</label>
-        <input type="text" class="form-control" id="siteManagers" required [(ngModel)]="siteManagers" name="sm">
-
-    </div> -->
     <button (click)="display = !display">{{display ? 'Click to Hide Reviews' : 'Click to View Reviews'}}</button>
     <div *ngIf=display>
 
