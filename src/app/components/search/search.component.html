@@ -1,4 +1,4 @@
-<h2>Search By:</h2>
+<h3>Search By:</h3>
 <div>
     <h4>Subject Code:</h4>
     Subject: <input placeholder="Enter Subject Code" [(ngModel)]="subject">
@@ -49,6 +49,17 @@
 
     </div>
 </div>
-<div class="redirectToLogin">
-    <span>Return to Login Page <span class="redirect" routerLink="/sign-in">Log In</span></span>
+
+<div>
+    <div *ngFor="let timetable of timetables" style="width: 300px;">
+        <div>
+            <app-timetable-details [timetable]='timetable'></app-timetable-details>
+
+        </div>
+
+
+    </div>
+</div>
+<div class="redirectToLogin ">
+    <span>Return to Login Page <span class="redirect " routerLink="/sign-in ">Log In</span></span>
 </div>

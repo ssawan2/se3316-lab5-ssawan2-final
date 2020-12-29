@@ -1,28 +1,12 @@
 <ul>
     <li *ngFor='let doc of returnArray'>
         {{doc.uid}} {{doc.email}}
-        <a herf=# class="secondary-content">
-            <i (click)="editUser(doc.uid)" class="fa fa-pencil">Edit</i>
-            <p>{{editState}}</p>
-            <!-- <p>{{userToEdit.uid}}</p> -->
-            <p>{{doc.uid}}</p>
-            <form [formGroup]="this.form">
-                <input placeholder="New Value" formControlName="newValue" type="text" class="input-field col s12" />
-                <button (click)="onSubmit()">
-                  Set Site Manager 
-                </button>
-            </form>
-            <div *ngIf="editState && doc.uid == userToEdit.uid ">
 
-            </div>
-        </a>
-
-
-
-        <!-- <button>Set Site Manager</button>
-        <button>User Status</button> -->
 
 
     </li>
+    <!-- <span class="button is-small btn-primary" *ngIf='status.active' (click)='updateStatus(false)'>Site Manager</span>
+
+    <span class="button is-small btn-primary" *ngIf='!status.active' (click)='updateStatus(true)'>Remove Access</span> -->
 
 </ul>

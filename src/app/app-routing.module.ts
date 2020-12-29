@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminAccessComponent } from './components/admin-access/admin-access.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { AupComponent } from './components/policies/aup/aup.component';
+import { DmcaComponent } from './components/policies/dmca/dmca.component';
+import { SAndCComponent } from './components/policies/s-and-c/s-and-c.component';
 import { ReviewComponent } from './components/review/review.component';
 import { ReviewCreateComponent } from './components/reviews/review-create/review-create.component';
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
@@ -36,6 +39,9 @@ const routes: Routes = [
   { path: 'review/review-list', component: ReviewListComponent },
   { path: 'review/addReview', component: ReviewCreateComponent },
 
+  { path: 'aup', component:AupComponent},
+  { path: 'dmca', component:DmcaComponent},
+  { path: 's-and-c', component:SAndCComponent}
   
 ];
 

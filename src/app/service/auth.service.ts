@@ -1,22 +1,26 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from "../shared/services/user";
 
+
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
+
+import '@firebase/auth';
+
+import { firebase } from '@firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  userData: any; // Save logged in user data
-
+  userData: any; 
   constructor(
-    public afs: AngularFirestore,   // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afs: AngularFirestore,  
+    public afAuth: AngularFireAuth,
     public router: Router,  
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone 
   ) {    
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -57,12 +61,21 @@ export class AuthService {
       })
   }
 
-  // Sign in with Google
-  // GoogleAuth() {
-  //   return this.AuthLogin(new auth.GoogleAuthProvider());
-  // }  
+  
+// GoogleAuth() {
+//   return this.AuthLogin(new auth.GoogleAuthProvider());  
+//   }  
 
-  // Auth logic to run auth providers
+   // const provider = new firebase.auth.GoogleAuthProvider();
+      // const credential = await this.afAuth.signInWithPopup(provider);
+      // console.log(provider);
+      // console.log(credential);
+      // return this.router.navigateByUrl('/')
+      //return this.oAuthLogin(provider);
+  
+      //return this.updateUserData(credential.user);
+
+  
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
@@ -96,7 +109,6 @@ export class AuthService {
   SettingAdmin(user){
     
     if(user.email == "master@mail.com"){
-      console.log("hello it got here")
       this.afs.collection("users/").doc(`${user.uid}`)
       .update({ admin: true })
       .then(function() {
@@ -108,12 +120,17 @@ export class AuthService {
      }
   }
 
-  // SettingSiteManager(user){
-  //   if(user.admin == true){
-  //     const docRef = this.afs.collection('users', ref => ref
-  //     .where("siteManager", "==", this.secondForm.value.valueToGet));
-  //   }
-  // }
+  SettingSiteManager(user){
+      this.afs.collection("users/").doc(`${user.siteManager}`)
+      .update({ admin: true })
+      .then(function() {
+       console.log("Document successfully updated!");
+
+   })
+   .catch(function(error) {
+       console.error("Error updating document: ", error);
+   });
+  }
 
   // Sign out 
   SignOut() {

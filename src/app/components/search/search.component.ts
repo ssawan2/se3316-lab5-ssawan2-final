@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../../static/course.json';
 import subData from '../../static/Lab5-subject-data.json';
+import {TimetableControlService } from '../../service/timetable-control.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +12,7 @@ import subData from '../../static/Lab5-subject-data.json';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private timetableControlService: TimetableControlService) { }
   CourseInfo: any = data;
   SubjectData: any = subData;
 
@@ -27,7 +29,10 @@ export class SearchComponent implements OnInit {
   show = false;
   public keyword: String;
 
+  timetables: any;
+
   ngOnInit(): void {
+    this.getTimetableList();
   }
   sanitization(value) {
 
@@ -109,4 +114,16 @@ export class SearchComponent implements OnInit {
     }
     console.log(this.returnValueTT);
   }
+  getTimetableList(){
+    this.timetableControlService.getTimetableList().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(timetables => {
+      this.timetables = timetables;
+    });
+  }
 }
+

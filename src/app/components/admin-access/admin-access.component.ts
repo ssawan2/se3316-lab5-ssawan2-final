@@ -48,8 +48,12 @@ export class AdminAccessComponent implements OnInit {
     .catch(e => {
         console.log(e);
     })
-}
-  
+  }
+  // updateActive(siteManager: boolean) {
+  //   this.reviewService
+  //     .updateUser(this.user.key, { active: siteManager })
+  //     .catch(err => console.log(err));
+  // }  
 
 
 

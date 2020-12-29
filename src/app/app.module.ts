@@ -27,6 +27,9 @@ import { ReviewComponent } from './components/review/review.component';
 import { ReviewCreateComponent } from './components/reviews/review-create/review-create.component';
 import { ReviewDetailsComponent } from './components/reviews/review-details/review-details.component';
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
+import { AupComponent } from './components/policies/aup/aup.component';
+import { DmcaComponent } from './components/policies/dmca/dmca.component';
+import { SAndCComponent } from './components/policies/s-and-c/s-and-c.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,10 @@ import { ReviewListComponent } from './components/reviews/review-list/review-lis
     ReviewComponent,
     ReviewCreateComponent,
     ReviewDetailsComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    AupComponent,
+    DmcaComponent,
+    SAndCComponent
   ],
   imports: [
     BrowserModule,
