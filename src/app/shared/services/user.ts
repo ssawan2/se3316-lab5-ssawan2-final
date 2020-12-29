@@ -6,5 +6,5 @@ export interface User {
     emailVerified: boolean;
     admin : boolean;
     siteManager : boolean;
-    // active: boolean;
+    active: boolean;
  }

@@ -1,10 +1,17 @@
 <ul>
-    <li *ngFor='let doc of returnArray'>
-        {{doc.uid}} {{doc.email}}
-    </li>
-    <!-- <span class="button is-small btn-primary" *ngIf='status.active' (click)='updateStatus(false)'>Site Manager</span>
+    <div>
+        <h3>All Site Users:</h3>
+        <li *ngFor='let doc of returnArray'>
+            {{doc.uid}} {{doc.email}}
+        </li>
+    </div>
 
-    <span class="button is-small btn-primary" *ngIf='!status.active' (click)='updateStatus(true)'>Remove Access</span> -->
+    <!-- <div>
+        <p>To set a site manager enter the user id</p>
+        <label for="siteManagers">User Id:</label>
+        <input type="text" class="form-control" id="siteManagers" required [(ngModel)]="siteManagers" name="sm">
+
+    </div> -->
     <button (click)="display = !display">{{display ? 'Click to Hide Reviews' : 'Click to View Reviews'}}</button>
     <div *ngIf=display>
 

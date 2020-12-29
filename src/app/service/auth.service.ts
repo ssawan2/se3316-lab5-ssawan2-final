@@ -34,7 +34,6 @@ export class AuthService {
     })
   }
 
-  // Sign in with email/password
   SignIn(email, password) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -48,11 +47,11 @@ export class AuthService {
       })
   }
 
-  // Sign up with email/password
+  
   SignUp(email, password) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        //this.SendVerificationMail();
+        this.SendVerificationMail();
         this.SetUserData(result.user);
         
         this.SettingAdmin(result.user);
@@ -62,18 +61,9 @@ export class AuthService {
   }
 
   
-// GoogleAuth() {
-//   return this.AuthLogin(new auth.GoogleAuthProvider());  
-//   }  
-
-   // const provider = new firebase.auth.GoogleAuthProvider();
-      // const credential = await this.afAuth.signInWithPopup(provider);
-      // console.log(provider);
-      // console.log(credential);
-      // return this.router.navigateByUrl('/')
-      //return this.oAuthLogin(provider);
-  
-      //return this.updateUserData(credential.user);
+GoogleAuth() {
+  return this.AuthLogin(new firebase.auth.GoogleAuthProvider());  
+  }  
 
   
   AuthLogin(provider) {
@@ -100,7 +90,7 @@ export class AuthService {
       emailVerified: user.emailVerified,
       admin: user.admin = false,
       siteManager: user.siteManager = false,
-      // active: user.active,
+      active: user.active  =true,
     }
     return userRef.set(userData, {
       merge: true
@@ -112,10 +102,10 @@ export class AuthService {
       this.afs.collection("users/").doc(`${user.uid}`)
       .update({ admin: true })
       .then(function() {
-       console.log("Document successfully updated!");
+       console.log("updated!");
    })
    .catch(function(error) {
-       console.error("Error updating document: ", error);
+       console.error("Error : ", error);
    });
      }
   }
@@ -124,15 +114,14 @@ export class AuthService {
       this.afs.collection("users/").doc(`${user.siteManager}`)
       .update({ admin: true })
       .then(function() {
-       console.log("Document successfully updated!");
+       console.log("updated!");
 
    })
    .catch(function(error) {
-       console.error("Error updating document: ", error);
+       console.error("Error: ", error);
    });
   }
-
-  // Sign out 
+ 
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
@@ -140,4 +129,19 @@ export class AuthService {
     })
   }
 
+  SendVerificationMail() {
+    return this.afAuth.currentUser.then(u => u.sendEmailVerification())
+    .then(() => {
+      this.router.navigate(['email-verification']);
+    })
+}    
+
+ForgotPassword(passwordResetEmail) {
+  return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
+  .then(() => {
+    window.alert('Check inbox, email was resent');
+  }).catch((error) => {
+    window.alert(error)
+  })
+}
 }
