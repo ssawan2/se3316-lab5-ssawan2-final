@@ -1,12 +1,20 @@
 <ul>
     <li *ngFor='let doc of returnArray'>
         {{doc.uid}} {{doc.email}}
-
-
-
     </li>
     <!-- <span class="button is-small btn-primary" *ngIf='status.active' (click)='updateStatus(false)'>Site Manager</span>
 
     <span class="button is-small btn-primary" *ngIf='!status.active' (click)='updateStatus(true)'>Remove Access</span> -->
+    <button (click)="display = !display">{{display ? 'Click to Hide Reviews' : 'Click to View Reviews'}}</button>
+    <div *ngIf=display>
 
+        <div *ngFor="let review of reviews" style="width: 300px;">
+            <div>
+                <app-review-details [review]='review'></app-review-details>
+
+            </div>
+
+
+        </div>
+    </div>
 </ul>
