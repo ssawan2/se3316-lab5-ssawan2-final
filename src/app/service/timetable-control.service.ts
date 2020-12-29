@@ -43,11 +43,7 @@ export class TimetableControlService {
     return this.timetableRef.remove();
   }
 
-  // getTimetablelist(): AngularFireObject<Timetable[]>{
-  //     if(!this.userId)return;
-  //      this.timetables = this.db.list(`item/${this.userId}`);
-  //      return this.timetables
-  // }
+  
 
   
 }
