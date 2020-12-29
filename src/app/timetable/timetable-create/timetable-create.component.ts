@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {TimetableControlService } from '../../service/timetable-control.service';
 
+import {AuthService} from '../../service/auth.service';
+
 import { map } from 'rxjs/operators';
 import { Timetable } from 'src/app/shared/services/timetable';
-
+import { User } from '../../shared/services/user';
 
 import { NgForm } from '@angular/forms';
 import data from '../../static/course.json';
@@ -17,10 +19,9 @@ export class TimetableCreateComponent implements OnInit {
  timetable: Timetable = new Timetable();
  submitted = false;
  CourseInfo: any = data;
- 
  public returnValueTT = [];
 
-  constructor(private timetableControlService: TimetableControlService) { }
+  constructor(private timetableControlService: TimetableControlService, public authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -36,6 +37,7 @@ export class TimetableCreateComponent implements OnInit {
   }
  
   save() {
+    this.timetable.uid = this.authService.userData.uid;
     this.timetableControlService.createTimetable(this.timetable);
     this.timetable = new Timetable();
   }

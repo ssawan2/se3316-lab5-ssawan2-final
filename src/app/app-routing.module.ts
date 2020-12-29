@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  {path: 'search', component: SearchComponent},
+  { path: 'search', component: SearchComponent},
   { path: 'admin', component: AdminAccessComponent},
   
   { path: 'timetable', component: TimetableComponent },

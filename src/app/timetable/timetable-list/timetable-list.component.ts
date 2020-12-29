@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TimetableControlService } from '../../service/timetable-control.service';
+import {AuthService} from '../../service/auth.service';
 
 import { map } from 'rxjs/operators';
 
@@ -12,7 +13,7 @@ export class TimetableListComponent implements OnInit {
 
   timetables: any;
 
-  constructor(private timetableControlService: TimetableControlService) { }
+  constructor(private timetableControlService: TimetableControlService, public authService: AuthService) { }
 
   ngOnInit(): void {
     

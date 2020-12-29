@@ -1,7 +1,7 @@
 <h3>Create Timetable</h3>
 <div [hidden]="submitted" style="width: 300px;">
     <form (ngSubmit)="checkForMatch()">
-        <div class="form-group">
+        <div class="form-group" *ngIf="authService.userData as user">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" required [(ngModel)]="timetable.name" name="name">
             <label for="subjectCodeEntry">Subject Code:</label>
@@ -12,6 +12,7 @@
             <input type="text" class="form-control" id="description" [(ngModel)]="timetable.description" name="ds">
             <label for="date">Date:</label>
             <input type="date" class="form-control" id="date" required [(ngModel)]="timetable.date" name="date">
+
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
