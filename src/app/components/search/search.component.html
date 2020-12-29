@@ -39,36 +39,17 @@
 
     </div>
 </div>
-<!-- <div>
-    <h4>Keyword Search:</h4>
-    Search By Keyword: <input placeholder="Enter Keyword Code" [(ngModel)]="keyword">
-    <button (click)="searchByKeywords()">Search</button>
-    <div>
-        <li *ngFor="let display of rV">
-            <p>Subject: {{display.courseCode}} </p>
-        </li>
-    </div>
-    <div id="courseDiv" class="div2"></div>
-</div> -->
-<!-- <div>
-    <h4>Keyword Search</h4>
-    Keyword: <input placeholder="Enter Keyword" [(ngModel)]="keyword">
-    <button (click)="searchByKeywords()">Search</button>
-    <div>
-        <li *ngFor="let display of rV">
-            <p> hi </p>
-        </li>
-    </div>
-    <div id="courseDiv" class="div2"></div>
-</div> -->
+
 <div>
-    <h4>Subject Code:</h4>
-    Subject: <input placeholder="Enter Subject Code" [(ngModel)]="subject">
+    <h4>Keyword Search</h4>
+    Keyword: <input placeholder="Enter Subject Code" [(ngModel)]="subject">
     <button (click)="searchForCourses()">Search</button>
     <div>
         <li *ngFor="let display of returnValue">
             <p> Course Code: {{display.courseCode}} </p>
         </li>
+
+
     </div>
     <div id="courseDiv" class="div2"></div>
 </div>

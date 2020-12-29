@@ -52,8 +52,8 @@ export class SearchComponent implements OnInit {
           "courseCode": this.CourseInfo[i].catalog_nbr
         });
 
-      
-    }}
+      }
+    }
     console.log(this.returnValue);
   }
   
@@ -97,7 +97,7 @@ export class SearchComponent implements OnInit {
     if (keyword.length > 3) {
       for (let i = 0; i < this.CourseInfo.length; i++) {
         if ((this.CourseInfo[i].subject == keyword)) {
-          this.returnValue.push({
+          this.rV.push({
             "course_info": this.CourseInfo[i].course_info
           });
         }
